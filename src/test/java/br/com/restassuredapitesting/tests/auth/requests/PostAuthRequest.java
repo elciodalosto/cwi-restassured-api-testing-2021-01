@@ -19,7 +19,6 @@ public class PostAuthRequest {
                 .when()
                 .body(payload.toString())
                 .post("auth");
-
     }
 
     @Step("Retornar o Token")
@@ -29,7 +28,7 @@ public class PostAuthRequest {
                 .statusCode(200)
                 .extract()
                 .path("token");
-
     }
+
 
 }
