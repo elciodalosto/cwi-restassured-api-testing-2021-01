@@ -7,7 +7,7 @@ import static io.restassured.RestAssured.given;
 
 public class GetBookingRequest {
 
-    @Step("5. Listar IDs das reservas")
+    @Step("Listar IDs das reservas")
     public Response listAllBookings(){
             return given()
                 .header("Content-Type", "application/json")
@@ -15,27 +15,28 @@ public class GetBookingRequest {
                 .get("booking");
     }
 
-    @Step("6. Listar uma reserva específica")
+    @Step("Listar uma reserva específica")
     public Response listBookingById(int id){
         return given()
-                .header("Accept", "application.json")
-                .header("Content-Type", "application.json")
+                .header("Accept", "application/json")
+                .header("Content-Type", "application/json")
                 .when()
                 .get("booking"+"/"+id);
     }
-    @Step("7. Lista IDs de reservas utilizando o filtro firstname")
+
+    @Step("Lista IDs de reservas utilizando o filtro firstname")
     public Response listBookingByFirstName(String firstName){
         return given()
-                .header("Accept", "application.json")
-                .header("Content-Type", "application.json")
+                .header("Accept", "application/json")
+                .header("Content-Type", "application/json")
                 .when()
                 .get("booking?firstname="+firstName);
     }
     @Step("Lista os IDs de reservas utilizando o filtro lastname")
     public Response listBookingByLastName(String lastName){
         return given()
-                .header("Accept", "application.json")
-                .header("Content-Type", "application.json")
+                .header("Accept", "application/json")
+                .header("Content-Type", "application/json")
                 .when()
                 .get("booking?lastname="+lastName);
     }
@@ -43,8 +44,8 @@ public class GetBookingRequest {
     @Step("Lista os IDs de reservas utilizando o filtro checkin")
     public Response listBookingByCheckIn(String checkin){
         return given()
-                .header("Accept", "application.json")
-                .header("Content-Type", "application.json")
+                .header("Accept", "application/json")
+                .header("Content-Type", "application/json")
                 .when()
                 .get("booking?checkin="+checkin);
     }
@@ -52,8 +53,8 @@ public class GetBookingRequest {
     @Step("Lista os IDs de reservas utilizando o filtro checkout")
     public Response listBookingByCheckOut(String checkout){
         return given()
-                .header("Accept", "application.json")
-                .header("Content-Type", "application.json")
+                .header("Accept", "application/json")
+                .header("Content-Type", "application/json")
                 .when()
                 .get("booking?checkout="+checkout);
     }
@@ -61,8 +62,8 @@ public class GetBookingRequest {
     @Step("Listar IDs de reservas utilizando o filtro checkin and checkout")
     public Response listBookingByCheckInAndCheckOut(String checkin, String checkout){
         return given()
-                .header("Accept", "application.json")
-                .header("Content-Type", "application.json")
+                .header("Accept", "application/json")
+                .header("Content-Type", "application/json")
                 .when()
                 .get("booking?"+"checkin="+checkin+"&"+"checkout="+checkout);
     }
@@ -70,8 +71,8 @@ public class GetBookingRequest {
     @Step("Listar IDs de reservas utilizando o filtro name, checkin and checkout date")
     public  Response listBookingsByNameCheckInAndCheckOut(String name, String checkin, String checkout){
         return given()
-                .header("Accept", "application.json")
-                .header("Content-Type", "application.json")
+                .header("Accept", "application/json")
+                .header("Content-Type", "application/json")
                 .when()
                 .get("booking?"+"name="+name+"&"+"checkin="+checkin+"&"+"checkout="+checkout);
     }
